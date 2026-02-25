@@ -1,275 +1,73 @@
-<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>外国人向け 住居・手続きナビ</title>
-  <meta name="description" content="外国人の方向けに、住居探し・免許・事務手続きの情報へすぐアクセスできるリンク集です。" />
+<!-- 住居 -->
+<article class="card">
+  <div class="cardHead">
+    <h2 class="cardTitle">
+      <span class="icon">🏠</span> 住居（部屋探し）
+    </h2>
+    <p class="desc">外国人OK物件・短期滞在・保証人不要などの情報にすぐアクセス。</p>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://realestate.co.jp/en/" target="_blank">
+      <span>外国人向け賃貸を探す <small>Real Estate Japan</small></span>
+      <span class="arrow">↗</span>
+    </a>
+    <a class="btn" href="https://apartments.gaijinpot.com/en/rent" target="_blank">
+      <span>英語対応物件検索 <small>GaijinPot</small></span>
+      <span class="arrow">↗</span>
+    </a>
+    <a class="btn" href="https://www.suumo.jp/chintai/kanto/sc_tokyo/" target="_blank">
+      <span>一般賃貸検索 <small>SUUMO</small></span>
+      <span class="arrow">↗</span>
+    </a>
+  </div>
+</article>
 
-  <style>
-    :root{
-      --bg: #0b1220;
-      --card: rgba(255,255,255,.08);
-      --card2: rgba(255,255,255,.06);
-      --text: #eaf0ff;
-      --muted: rgba(234,240,255,.7);
-      --line: rgba(234,240,255,.14);
-      --accent: #7aa7ff;
-      --shadow: 0 18px 40px rgba(0,0,0,.35);
-      --radius: 18px;
-    }
 
-    *{ box-sizing: border-box; }
-    html, body{ height: 100%; }
-    body{
-      margin: 0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(1000px 600px at 10% 10%, rgba(122,167,255,.22), transparent 55%),
-        radial-gradient(900px 500px at 90% 20%, rgba(159,122,255,.18), transparent 55%),
-        radial-gradient(800px 600px at 30% 90%, rgba(34,197,94,.12), transparent 55%),
-        var(--bg);
-    }
+<!-- 免許 -->
+<article class="card">
+  <div class="cardHead">
+    <h2 class="cardTitle">
+      <span class="icon">🚗</span> 免許（運転）
+    </h2>
+    <p class="desc">外免切替・教習所・必要書類の情報へ。</p>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://www.npa.go.jp/english/bureau/traffic/index.html" target="_blank">
+      <span>外免切替の公式情報 <small>警察庁</small></span>
+      <span class="arrow">↗</span>
+    </a>
+    <a class="btn" href="https://www.keishicho.metro.tokyo.lg.jp/multilingual/english/traffic_safety/drivers_licenses/index.html" target="_blank">
+      <span>外国人向け免許ガイド</span>
+      <span class="arrow">↗</span>
+    </a>
+    <a class="btn" href="https://www.tokyo-ankyo.or.jp/english/" target="_blank">
+      <span>東京都試験場情報</span>
+      <span class="arrow">↗</span>
+    </a>
+  </div>
+</article>
 
-    .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 16px 40px;
-    }
 
-    header{
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 18px;
-    }
-
-    .title{
-      line-height: 1.25;
-      margin: 0;
-      font-size: clamp(22px, 3.5vw, 34px);
-      letter-spacing: .2px;
-    }
-
-    .subtitle{
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-      max-width: 60ch;
-    }
-
-    .badge{
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      padding: 10px 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      border-radius: 999px;
-      font-size: 12px;
-      color: var(--muted);
-      white-space: nowrap;
-      backdrop-filter: blur(10px);
-    }
-
-    .grid{
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .card{
-      grid-column: span 4;
-      border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--card), var(--card2));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      backdrop-filter: blur(14px);
-      position: relative;
-      min-height: 260px;
-    }
-
-    .cardHead{
-      padding: 18px 18px 14px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .cardTitle{
-      margin: 0;
-      font-size: 18px;
-      letter-spacing: .2px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .icon{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      display: grid;
-      place-items: center;
-      background: rgba(122,167,255,.14);
-      border: 1px solid rgba(122,167,255,.25);
-      flex: 0 0 auto;
-    }
-
-    .desc{
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .actions{
-      padding: 16px 18px 18px;
-      display: grid;
-      gap: 10px;
-    }
-
-    .btn{
-      appearance: none;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      text-decoration: none;
-      padding: 14px 14px;
-      border-radius: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      transition: transform .08s ease, background .15s ease, border-color .15s ease;
-      touch-action: manipulation; /* スマホでタップしやすく */
-    }
-
-    .btn:hover{ transform: translateY(-1px); border-color: rgba(122,167,255,.35); }
-    .btn:active{ transform: translateY(1px); }
-    .btn small{ color: var(--muted); font-size: 12px; }
-    .arrow{ opacity: .8; font-size: 16px; }
-
-    .footer{
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.6;
-      border-top: 1px solid var(--line);
-      padding-top: 14px;
-    }
-
-    /* ✅ スマホ最適化 */
-    @media (max-width: 860px){
-      header{ flex-direction: column; align-items: flex-start; }
-      .badge{ align-self: flex-start; }
-      .card{ grid-column: span 6; }
-    }
-    @media (max-width: 560px){
-      .wrap{ padding: 20px 14px 32px; }
-      .grid{ gap: 12px; }
-      .card{ grid-column: span 12; }
-      .card{ min-height: auto; }
-      .btn{ padding: 14px 12px; }
-    }
-  </style>
-</head>
-
-<body>
-  <main class="wrap">
-    <header>
-      <div>
-        <h1 class="title">外国人向け 生活スタートナビ</h1>
-        <p class="subtitle">
-          住居探し・免許・事務手続きを、迷わず始めるための入口ページです。<br/>
-          ※リンクURLはこのあと松長さんが差し替えできます。
-        </p>
-      </div>
-      <div class="badge">📱 スマホ最適化 / 1ページ完結</div>
-    </header>
-
-    <section class="grid">
-      <!-- 住居 -->
-      <article class="card">
-        <div class="cardHead">
-          <h2 class="cardTitle">
-            <span class="icon">🏠</span> 住居（部屋探し）
-          </h2>
-          <p class="desc">外国人OK物件・短期滞在・保証人不要などの情報にすぐアクセス。</p>
-        </div>
-        <div class="actions">
-          <a class="btn" href="YOUR_URL_HOUSING_1" target="_blank" rel="noopener noreferrer">
-            <span>外国人向け賃貸を探す <small>（例：多言語サイト）</small></span>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="btn" href="YOUR_URL_HOUSING_2" target="_blank" rel="noopener noreferrer">
-            <span>住居探しガイド <small>（注意点・初期費用）</small></span>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="btn" href="YOUR_URL_HOUSING_3" target="_blank" rel="noopener noreferrer">
-            <span>保証会社・保証人の説明 <small>（仕組み）</small></span>
-            <span class="arrow">↗</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- 免許 -->
-      <article class="card">
-        <div class="cardHead">
-          <h2 class="cardTitle">
-            <span class="icon">🚗</span> 免許（運転）
-          </h2>
-          <p class="desc">外免切替・教習所・必要書類の情報へ。</p>
-        </div>
-        <div class="actions">
-          <a class="btn" href="YOUR_URL_LICENSE_1" target="_blank" rel="noopener noreferrer">
-            <span>外免切替の手順 <small>（必要書類）</small></span>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="btn" href="YOUR_URL_LICENSE_2" target="_blank" rel="noopener noreferrer">
-            <span>教習所を探す <small>（地域別）</small></span>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="btn" href="YOUR_URL_LICENSE_3" target="_blank" rel="noopener noreferrer">
-            <span>試験予約・窓口情報 <small>（案内）</small></span>
-            <span class="arrow">↗</span>
-          </a>
-        </div>
-      </article>
-
-      <!-- 事務手続き -->
-      <article class="card">
-        <div class="cardHead">
-          <h2 class="cardTitle">
-            <span class="icon">🧾</span> 事務手続き
-          </h2>
-          <p class="desc">在留・住民登録・保険・銀行・スマホなど、生活の必須手続き。</p>
-        </div>
-        <div class="actions">
-          <a class="btn" href="YOUR_URL_ADMIN_1" target="_blank" rel="noopener noreferrer">
-            <span>住民登録・役所手続き <small>（転入など）</small></span>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="btn" href="YOUR_URL_ADMIN_2" target="_blank" rel="noopener noreferrer">
-            <span>健康保険・年金 <small>（加入/免除）</small></span>
-            <span class="arrow">↗</span>
-          </a>
-          <a class="btn" href="YOUR_URL_ADMIN_3" target="_blank" rel="noopener noreferrer">
-            <span>銀行・携帯・日常インフラ <small>（契約）</small></span>
-            <span class="arrow">↗</span>
-          </a>
-        </div>
-      </article>
-    </section>
-
-    <p class="footer">
-      🔧 次の改善案：検索ボックス、よくある質問（FAQ）、チェックリスト（ToDo）追加。<br/>
-      ✅ URL差し替えは、上の <b>YOUR_URL_...</b> を実際のリンクに置き換えるだけです。
-    </p>
-  </main>
-</body>
-</html>
+<!-- 事務手続き -->
+<article class="card">
+  <div class="cardHead">
+    <h2 class="cardTitle">
+      <span class="icon">🧾</span> 事務手続き
+    </h2>
+    <p class="desc">在留・住民登録・保険・銀行・スマホなど、生活の必須手続き。</p>
+  </div>
+  <div class="actions">
+    <a class="btn" href="https://www.moj.go.jp/isa/" target="_blank">
+      <span>在留関連手続き <small>出入国在留管理庁</small></span>
+      <span class="arrow">↗</span>
+    </a>
+    <a class="btn" href="https://www.soumu.go.jp/main_sosiki/jichi_gyousei/c-gyousei/zairyu/english/move-in_move-out.html" target="_blank">
+      <span>住民登録・役所手続き <small>新宿区（例）</small></span>
+      <span class="arrow">↗</span>
+    </a>
+    <a class="btn" href="https://www.nenkin.go.jp/international/index.html" target="_blank">
+      <span>健康保険・年金 <small>日本年金機構</small></span>
+      <span class="arrow">↗</span>
+    </a>
+  </div>
+</article>
